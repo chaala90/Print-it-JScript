@@ -1,0 +1,20 @@
+let left=document.getElementById("left");
+left.addEventListener("click", previmg);
+var arrow_left = document.getElementsByClassName("arrow_left");
+
+let right=document.getElementById("right");
+right.addEventListener("click", nextimg);
+var arrow_right = document.getElementsByClassName("arrow_right");
+
+function nextimg() {
+  console.log("msg");
+  let current_image=document.getElementById("image");
+  var any=Object.values(slides);
+  console.log(any);
+
+}
+
+function previmg() {
+  console.log("test");
+
+}
