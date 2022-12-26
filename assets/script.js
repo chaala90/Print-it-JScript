@@ -21,9 +21,9 @@ tab=Object.values(slides);
 let banner=document.querySelector("#banner");
 //cibler la balise en passant par sa classe
 let slide=document.querySelector(".slide");
-console.log(slide);
+//console.log(slide);
 let p=document.querySelector(".p");
-let dot=document.querySelector(".dot");
+let dots=document.querySelector(".dot");
 let arrow_left=document.querySelector(".arrow_left");
 arrow_left.addEventListener("click", previmg);
 let arrow_right=document.querySelector(".arrow_right");
@@ -32,9 +32,7 @@ var i=0;
 const numimg = tab.length;
 //CREATION DES POINTS DE SLIDER
 
-
-
-
+//
 function previmg() {
   // tab[0].image;
   console.log(tab[0].image);
@@ -42,7 +40,7 @@ function previmg() {
   /*dot[i].classList.remove("dot_selected");*/
   i--;
   if (i < 0) {
-    i = slides.length - 1;
+    i = numimg - 1;
   }
   slide.src = "./assets/images/slideshow/" + tab[i].image;
   p.innerHTML=tab[i].tagLine;
