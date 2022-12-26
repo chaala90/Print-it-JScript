@@ -1,4 +1,4 @@
-const slides = [
+let slides = [
   {
     "image": "slide1.jpg",
     "tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
@@ -13,36 +13,52 @@ const slides = [
   },
   {
     "image": "slide4.png",
-    "tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
-  }
-];
-var src= "./assets/images/slideshow/";
+    "tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"}];
+
+let tab=[];
+tab=Object.values(slides);
+//console.log(tab);
+let banner=document.querySelector("#banner");
+//cibler la balise en passant par sa classe
+let slide=document.querySelector(".slide");
+console.log(slide);
+let p=document.querySelector(".p");
+let dot=document.querySelector(".dot");
 let arrow_left=document.querySelector(".arrow_left");
 arrow_left.addEventListener("click", previmg);
 let arrow_right=document.querySelector(".arrow_right");
 arrow_right.addEventListener("click", nextimg);
-let dot=document.querySelector(".dot");
-//dot.addEventListener("click, ")
-//let current_image=document.getElementById("slidy");
-//var table=Object.values(slides);
 var i=0;
-var slide=["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png"];
-var tagLine=[""];
+const numimg = tab.length;
+//CREATION DES POINTS DE SLIDER
+
+
 
 
 function previmg() {
-  document.getElementById("slidy").src = slide[i];
-  if (i<= slide.length-1);
-  return i--;
+  // tab[0].image;
+  console.log(tab[0].image);
+
+  /*dot[i].classList.remove("dot_selected");*/
+  i--;
+  if (i < 0) {
+    i = slides.length - 1;
   }
+  slide.src = "./assets/images/slideshow/" + tab[i].image;
+  p.innerHTML=tab[i].tagLine;
+
+  /* dot[i].classList.add("dot_selected");*/
+
+}
 
 function nextimg() {
-  document.getElementById("slidy").src = slide[i];
-  if(i >slide.length-1);
-  return i++;
+  /*dot[i].classList.remove("dot_selected");*/
+ i++;
+  if(i >numimg-1)
+  { i=0;
 }
-/*function setimg(){
-  document.getElementById("image").src = slide[i].image;
-  return image.setAttribute('src', './assets/images/slideshow', slide[i+1]);
-
-}*/
+slide.src = "./assets/images/slideshow/" + tab[i].image;
+p.innerHTML=tab[i].tagLine;
+ 
+   }
+   /*dot[i].classList.add("dot_selected");*/
