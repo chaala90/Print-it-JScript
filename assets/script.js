@@ -14,25 +14,34 @@ let slides = [
   {
     "image": "slide4.png",
     "tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"}];
-
+// declarer un tableau
 let tab=[];
 tab=Object.values(slides);
-//console.log(tab);
 let banner=document.querySelector("#banner");
 //cibler la balise en passant par sa classe
 let slide=document.querySelector(".slide");
-//console.log(slide);
 let p=document.querySelector(".p");
-let dots=document.querySelector(".dot");
+//recuperer les fleches gauches et droites
 let arrow_left=document.querySelector(".arrow_left");
 arrow_left.addEventListener("click", previmg);
 let arrow_right=document.querySelector(".arrow_right");
 arrow_right.addEventListener("click", nextimg);
 var i=0;
+//la longueur de tableau
 const numimg = tab.length;
 //CREATION DES POINTS DE SLIDER
+let dots=document.querySelector(".dots");
+//savoir combien de point mettre
+for ( let i=0; i<=numimg-1; i++){
+  if (i=0) {
+    d.classList.add("dot_selected");
+  }
+let d=document.createElement("div");
+d.classList.add("dot");
+dots.appendChild(d);
 
-//
+}
+
 function previmg() {
   // tab[0].image;
   console.log(tab[0].image);
@@ -44,10 +53,10 @@ function previmg() {
   }
   slide.src = "./assets/images/slideshow/" + tab[i].image;
   p.innerHTML=tab[i].tagLine;
-
   /* dot[i].classList.add("dot_selected");*/
 
 }
+
 
 function nextimg() {
   /*dot[i].classList.remove("dot_selected");*/
